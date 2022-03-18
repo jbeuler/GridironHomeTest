@@ -8,6 +8,7 @@
     <None Remove="Models\" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
+    <None Remove="NuGet.PackageManagement" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

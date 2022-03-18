@@ -1,10 +1,15 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
+
 namespace Gridiron.HomeTest.Models
 {
-    public class ApplicationContext
+    public class ApplicationContext:DbContext
     {
-        public ApplicationContext()
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
+
         }
+
+        public DbSet<Application> Applications { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Gridiron.HomeTest.Models
         }
 
         [Key]
-        public int ApplicationId { get; set; }
+        public string Id { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
@@ -26,7 +26,7 @@ namespace Gridiron.HomeTest.Models
         [Column(TypeName = "nvarchar(100)")]
         public string AddressCity { get; set; }
 
-        [Column(TypeName = "nvarchar(20)")]
+        [Column(TypeName = "nvarchar(2)")]
         public string AddressState { get; set; }
 
         [Column(TypeName = "nvarchar(5)")]
