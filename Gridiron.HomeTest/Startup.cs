@@ -74,7 +74,6 @@ namespace Gridiron.HomeTest
         {
             var testApplication1 = new Application
             {
-                Id = "app1",
                 Name = "Application 1",
                 EffectiveDate = "01/07/2022",
                 AddressStreet = "140 E 46th St",
@@ -86,7 +85,6 @@ namespace Gridiron.HomeTest
 
             var testApplication2 = new Application
             {
-                Id = "app2",
                 Name = "Application 2",
                 EffectiveDate = "02/14/2022",
                 AddressStreet = "461 NW 9th St",
@@ -98,7 +96,6 @@ namespace Gridiron.HomeTest
 
             var testApplication3 = new Application
             {
-                Id = "app3",
                 Name = "Application 3",
                 EffectiveDate = "02/15/2022",
                 AddressStreet = "501 77th St",

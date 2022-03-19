@@ -11,7 +11,7 @@ namespace Gridiron.HomeTest.Models
         }
 
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
