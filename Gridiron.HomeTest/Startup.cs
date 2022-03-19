@@ -33,9 +33,9 @@ namespace Gridiron.HomeTest
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ApplicationAPI", Version = "v1" });
             });
 
-            //services.AddDbContext<ApplicationContext>(options =>
-            //    options.UseInMemoryDatabase("gridiron_apps")
-            //);
+            services.AddDbContext<ApplicationContext>(options =>
+                options.UseInMemoryDatabase("gridiron_apps")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +51,6 @@ namespace Gridiron.HomeTest
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-              
 
             }
 
@@ -64,8 +63,11 @@ namespace Gridiron.HomeTest
                 endpoints.MapControllers();
             });
 
-            //var context = app.ApplicationServices.GetService<ApplicationContext>();
-            //AddTestData(context);
+
+            var scope = app.ApplicationServices.CreateScope();
+            var context = scope.ServiceProvider.GetService<ApplicationContext>();
+
+            AddTestData(context);
         }
 
         private static void AddTestData(ApplicationContext context)
