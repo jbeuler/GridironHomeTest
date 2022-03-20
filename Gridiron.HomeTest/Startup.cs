@@ -36,11 +36,19 @@ namespace Gridiron.HomeTest
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseInMemoryDatabase("gridiron_apps")
             );
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var UIEndpoint = Environment.GetEnvironmentVariable("UI_ENDPOINT");
+
+            Console.WriteLine(UIEndpoint);
+
+            app.UseCors(options => options.WithOrigins(UIEndpoint).AllowAnyMethod().AllowAnyHeader());
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>

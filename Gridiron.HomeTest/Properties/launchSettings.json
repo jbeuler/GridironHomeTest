@@ -26,6 +26,9 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Gridiron.HomeTest.UI": {
+      "applicationUrl": "http://localhost:4200",
     }
   }
 }
