@@ -1,9 +1,70 @@
-.form-control {
-        padding:10px 5px;
+.application-registration-form {
+    .form-control {
+        padding:10px 10px;
         margin: 5px 10px;
-}
+        border-radius: 4px;
+        border: 1px solid rgb(160, 160, 160);
 
-label {
-    margin: 5px 10px;
-}
+        &.invalid {
+            border: 1px solid rgb(223, 59, 59);
+        }
+    }
+    
+    label {
+        margin: 5px 10px;
+    }
+    
+    .btn {
+        margin: 5px 10px;
+        padding: 10px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-transform: uppercase;
+        border: none;
 
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        border: none;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        outline: none;
+
+        &:hover {
+            transform: translateY(-1px);
+        }
+
+        &.btn-green {
+            background-color: #b7ffb7;
+        }
+
+        &.btn-blue {
+            background-color: #4da6fa;
+            color: #fff;
+        }
+    }
+    
+    .form-row {
+        display: flex;
+        &.vertical {
+            flex-direction: column;
+        }
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px;
+        &.horizontal {
+            flex-direction: column;
+        }
+    }
+    
+    .group-label {
+        font-weight: 600;
+    }
+    
+    .col-md-4 {
+        width: 33.33%;
+    }
+}

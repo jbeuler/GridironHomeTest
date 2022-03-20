@@ -1,47 +1,51 @@
-<form>
+<form class="application-registration-form" novalidate #applicationRegistrationForm="ngForm"
+(submit)="onSubmit(applicationRegistrationForm)"
+>
     <input type="hidden" name="id" [value]="service.formData.id" />
-
     <div class="form-group">
-        <label>Name</label>
+        <label class="group-label">Name</label>
         <input type="text" class="form-control form-control-lg" placeholder="Name" name="name"
-        #name="ngModel" [(ngModel)]="service.formData.name">
+        #name="ngModel" [(ngModel)]="service.formData.name" required [class.invalid]="name.invalid && name.touched">
     </div>
     <div class="form-group">
-        <label>Effective Date</label>
+        <label class="group-label">Effective Date</label>
         <input type="text" class="form-control form-control-lg" placeholder="MM/DD/YYYY" name="effectiveDate"
-        #effectiveDate="ngModel" [(ngModel)]="service.formData.effectiveDate">
+        #effectiveDate="ngModel" [(ngModel)]="service.formData.effectiveDate" required [class.invalid]="effectiveDate.invalid && effectiveDate.touched">
     </div>
-    <div class="form-row">
-        <label>Address</label>
+    <div class="form-row vertical">
+        <label class="group-label">Address</label>
   
     <div class="form-group">
-        <label>Street</label>
         <input type="text" class="form-control form-control-lg" placeholder="Street" name="addressStreet"
-        #addressStreet="ngModel" [(ngModel)]="service.formData.addressStreet">
+        #addressStreet="ngModel" [(ngModel)]="service.formData.addressStreet" required [class.invalid]="addressStreet.invalid && addressStreet.touched">
     </div>
-    <div class="form-group">
-        <label>City</label>
-        <input type="text" class="form-control form-control-lg" placeholder="City" name="addressCity"
-        #addressCity="ngModel" [(ngModel)]="service.formData.addressCity"> 
+
+    <div class="form-row horizontal">
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control form-control-lg" placeholder="City" name="addressCity"
+            #addressCity="ngModel" [(ngModel)]="service.formData.addressCity" required [class.invalid]="addressCity.invalid && addressCity.touched"> 
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control form-control-lg" placeholder="State" name="addressState"
+            #addressState="ngModel" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched">
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control form-control-lg" placeholder="Zip" name="addressZip"
+            #addressZip="ngModel" [(ngModel)]="service.formData.addressZip" required maxlength="5" [class.invalid]="addressZip.invalid && addressZip.touched"> 
+        </div>
     </div>
-    <div class="form-group">
-        <label>State</label>
-        <input type="text" class="form-control form-control-lg" placeholder="State" name="addressState"
-        #addressState="ngModel" [(ngModel)]="service.formData.addressState">
-    </div>
-    <div class="form-group">
-        <label>Zip</label>
-        <input type="text" class="form-control form-control-lg" placeholder="Zip" name="addressZip"
-        #addressZip="ngModel" [(ngModel)]="service.formData.addressZip"> 
-    </div>
+
 </div>
     <div class="form-group">
-        <label>Insured Value Amount</label>
+        <label class="group-label">Insured Value Amount</label>
         <input type="text" class="form-control form-control-lg" placeholder="Insured Value Amount" name="insuredValueAmount"
-        #insuredValueAmount="ngModel" [(ngModel)]="service.formData.insuredValueAmount"> 
+        #insuredValueAmount="ngModel" [(ngModel)]="service.formData.insuredValueAmount" required [class.invalid]="insuredValueAmount.invalid && insuredValueAmount.touched"> 
     </div>
 
     <div class="form-group">
-        <button class="btn btn-info btn-lg btn-block">Submit</button>
+        <button class="btn btn-green" type="submit" [disabled]="applicationRegistrationForm.invalid">Submit</button>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-blue">Rate</button>
     </div>
 </form>
