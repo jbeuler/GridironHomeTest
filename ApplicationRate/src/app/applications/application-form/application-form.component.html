@@ -1,1 +1,47 @@
-<p>application-form works!</p>
+<form>
+    <input type="hidden" name="id" [value]="service.formData.id" />
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Name" name="name"
+        #name="ngModel" [(ngModel)]="service.formData.name">
+    </div>
+    <div class="form-group">
+        <label>Effective Date</label>
+        <input type="text" class="form-control form-control-lg" placeholder="MM/DD/YYYY" name="effectiveDate"
+        #effectiveDate="ngModel" [(ngModel)]="service.formData.effectiveDate">
+    </div>
+    <div class="form-row">
+        <label>Address</label>
+  
+    <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Street" name="addressStreet"
+        #addressStreet="ngModel" [(ngModel)]="service.formData.addressStreet">
+    </div>
+    <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control form-control-lg" placeholder="City" name="addressCity"
+        #addressCity="ngModel" [(ngModel)]="service.formData.addressCity"> 
+    </div>
+    <div class="form-group">
+        <label>State</label>
+        <input type="text" class="form-control form-control-lg" placeholder="State" name="addressState"
+        #addressState="ngModel" [(ngModel)]="service.formData.addressState">
+    </div>
+    <div class="form-group">
+        <label>Zip</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Zip" name="addressZip"
+        #addressZip="ngModel" [(ngModel)]="service.formData.addressZip"> 
+    </div>
+</div>
+    <div class="form-group">
+        <label>Insured Value Amount</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Insured Value Amount" name="insuredValueAmount"
+        #insuredValueAmount="ngModel" [(ngModel)]="service.formData.insuredValueAmount"> 
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block">Submit</button>
+    </div>
+</form>

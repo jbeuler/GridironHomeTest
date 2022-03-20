@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationService } from 'src/app/shared/application.service';
 
 @Component({
   selector: 'app-application-form',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service:ApplicationService) { }
 
   ngOnInit(): void {
   }
