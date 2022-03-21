@@ -267,4 +267,10 @@ export class ApplicationService {
   refreshList() {
     this.http.get(`${environment.apiBaseUrl}/Applications`).toPromise().then(res => this.list = res as Application[])
   }
+
+  calculatePremium(insuredValueAmount:number, usState:string) {
+    const rate = usState === 'FL' ? 0.15 : 0.17;
+
+    return (insuredValueAmount * rate / 100).toFixed(2);
+  }
 }

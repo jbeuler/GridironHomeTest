@@ -42,7 +42,7 @@
     </div>
     <div class="form-group">
         <label class="group-label">Insured Value Amount</label>
-        <input type="string" class="form-control form-control-lg" placeholder="Insured Value Amount" name="insuredValueAmount"
+        <input type="number" class="form-control form-control-lg" placeholder="Insured Value Amount" name="insuredValueAmount"
         #insuredValueAmount="ngModel" [(ngModel)]="service.formData.insuredValueAmount" required [class.invalid]="insuredValueAmount.invalid && insuredValueAmount.touched"> 
     </div>
 
@@ -50,6 +50,6 @@
         <button class="btn btn-green" type="submit" [disabled]="applicationRegistrationForm.invalid">Submit</button>
     </div>
     <div class="form-group">
-        <button class="btn btn-blue">Rate</button>
+        <button class="btn btn-blue" [disabled]="applicationRegistrationForm.invalid">Rate</button>
     </div>
 </form>

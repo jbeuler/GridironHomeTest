@@ -18,4 +18,5 @@ export class Application {
         this.addressZip = '';
         this.insuredValueAmount = 0;
     }
+
 }

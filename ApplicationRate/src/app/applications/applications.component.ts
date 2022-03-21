@@ -3,6 +3,7 @@ import { Application } from '../shared/application.model';
 import { ApplicationService } from '../shared/application.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-applications',
@@ -20,18 +21,11 @@ export class ApplicationsComponent implements OnInit {
     this.service.refreshList();
   }
 
-  calculatePremium(insuredValueAmount:number, usState:string) {
-    const rate = usState === 'FL' ? 0.15 : 0.17;
-
-    return (insuredValueAmount * rate / 100).toFixed(2);
-  }
-
   populateForm(selectedRecord:Application){
-    this.service.formData = Object.assign({},selectedRecord);
+    this.service.formData = Object.assign({},{...selectedRecord, effectiveDate: formatDate(selectedRecord.effectiveDate,'yyyy-MM-dd','en_US')});
   }
 
   onDelete(id:number){
-
     if(confirm('Are you sure ?')) {
       this.service.deleteApplication(id).subscribe(
         res => {
@@ -43,7 +37,6 @@ export class ApplicationsComponent implements OnInit {
         }
       )
     }
-   
    }
 
 }

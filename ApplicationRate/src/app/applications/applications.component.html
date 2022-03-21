@@ -3,7 +3,8 @@
 </h1>
 
 <div class="row">
-    <div class="col col-md-3">
+    <div class="col col-md-3 app-form-container">
+        <h2 class="app-form-title">Application Form</h2>
         <app-application-form></app-application-form>
     </div>
     <div class="col col-md-8">
@@ -23,9 +24,9 @@
                <tr *ngFor="let app of service.list">
                    <td (click)="populateForm(app)">{{app.name}}</td>
                    <td (click)="populateForm(app)">{{app.addressStreet}}<br> {{app.addressCity}}, {{app.addressState}}<br> {{app.addressZip}}</td>
-                   <td (click)="populateForm(app)">{{app.effectiveDate}}</td>
+                   <td (click)="populateForm(app)">{{app.effectiveDate | date :'yyyy-MM-dd'}}</td>
                    <td (click)="populateForm(app)">{{app.insuredValueAmount}}</td>
-                   <td (click)="populateForm(app)">{{calculatePremium(app.insuredValueAmount, app.addressState)}}</td>
+                   <td (click)="populateForm(app)">{{service.calculatePremium(app.insuredValueAmount, app.addressState) }}</td>
                    <td><fa-icon (click)="onDelete(app.id)" [icon]="faTrashAlt" class="text-danger"></fa-icon></td>
                 </tr>
            </tbody>

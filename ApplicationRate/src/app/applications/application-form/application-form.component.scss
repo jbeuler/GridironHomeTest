@@ -39,11 +39,19 @@
 
         &.btn-green {
             background-color: #b7ffb7;
+
+            &:disabled {
+                background-color: #b7ffb765;
+            }
         }
 
         &.btn-blue {
             background-color: #4da6fa;
             color: #fff;
+
+            &:disabled {
+                background-color: #4da6fa56;
+            }
         }
     }
     

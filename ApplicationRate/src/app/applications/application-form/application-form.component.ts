@@ -23,6 +23,7 @@ export class ApplicationFormComponent implements OnInit {
      this.updateRecord(form);
    }
   }
+
  
 
   insertRecord(form:NgForm){
