@@ -24,6 +24,13 @@ export class ApplicationFormComponent implements OnInit {
    }
   }
 
+  rateApplication(form:NgForm) {
+    const generatedPremium = this.service.calculatePremium(this.service.formData.insuredValueAmount, this.service.formData.addressState);
+
+    this.toastr.info(`The generated premium is ${generatedPremium}`, 'Generated Premium');
+
+  }
+
  
 
   insertRecord(form:NgForm){
@@ -44,7 +51,7 @@ export class ApplicationFormComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.service.refreshList();
-        this.toastr.info('Successfully updated!');
+        this.toastr.success('Successfully updated!');
       },
       err => {
         console.log(err);
