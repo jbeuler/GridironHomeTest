@@ -1,0 +1,55 @@
+<form class="application-registration-form" novalidate autocomplete="off" #applicationRegistrationForm="ngForm"
+(submit)="onSubmit(applicationRegistrationForm)">
+    <input type="hidden" name="id" [value]="service.formData.id" />
+    <div class="form-group">
+        <label class="group-label">Name</label>
+        <input type="text" class="form-control form-control-lg" placeholder="Name" name="name"
+        #name="ngModel" [(ngModel)]="service.formData.name" required [class.invalid]="name.invalid && name.touched">
+    </div>
+    <div class="form-group">
+        <label class="group-label">Effective Date</label>
+        <input type="date" class="form-control form-control-lg" placeholder="MM/DD/YYYY" name="effectiveDate"
+        #effectiveDate="ngModel" [(ngModel)]="service.formData.effectiveDate" required [class.invalid]="effectiveDate.invalid && effectiveDate.touched">
+    </div>
+    <div class="form-row vertical">
+        <label class="group-label">Address</label>
+  
+        <div>
+            <input type="text" class="form-control form-control-lg" placeholder="Street" name="addressStreet"
+            #addressStreet="ngModel" [(ngModel)]="service.formData.addressStreet" required [class.invalid]="addressStreet.invalid && addressStreet.touched">
+        </div>
+
+        <div class="d-flex horizontal">
+            <div class="col-md-4">
+                <input type="text" class="form-control form-control-lg" placeholder="City" name="addressCity"
+                #addressCity="ngModel" [(ngModel)]="service.formData.addressCity" required [class.invalid]="addressCity.invalid && addressCity.touched"> 
+            </div>
+            <div class="col-md-4">
+                <!-- <input type="text" class="form-control form-control-lg" placeholder="State" name="addressState"
+                #addressState="ngModel" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched"> -->
+                <label class="hidden-label" for="addressState" *ngIf="service.formData.addressState == ''">State</label>
+                <select placeholder="State" class="form-control form-control-lg" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched" name="addressState" #addressState="ngModel">
+                    <option *ngFor="let usState of service.usStates" value="{{usState.abbreviation}}">
+                        {{usState.name}}
+                     </option>
+                  </select>
+            </div>
+            <div class="col-md-2">
+                <input type="string" class="form-control form-control-lg" placeholder="Zip" name="addressZip"
+                #addressZip="ngModel" [(ngModel)]="service.formData.addressZip" required maxlength="5" [class.invalid]="addressZip.invalid && addressZip.touched"> 
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="group-label">Insured Value Amount</label>
+        <input type="number" class="form-control form-control-lg" placeholder="Insured Value Amount" name="insuredValueAmount"
+        #insuredValueAmount="ngModel" [(ngModel)]="service.formData.insuredValueAmount" required [class.invalid]="insuredValueAmount.invalid && insuredValueAmount.touched"> 
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-green" type="submit" [disabled]="applicationRegistrationForm.invalid">Submit</button>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-blue" type="button" [disabled]="applicationRegistrationForm.invalid" (click)="rateApplication(applicationRegistrationForm)">Rate</button>
+    </div>
+</form>

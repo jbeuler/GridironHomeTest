@@ -99,7 +99,7 @@ namespace Gridiron.HomeTest.Controllers
 
         // DELETE: api/Applications/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteApplication(string id)
+        public async Task<IActionResult> DeleteApplication(int id)
         {
             var application = await _context.Applications.FindAsync(id);
             if (application == null)

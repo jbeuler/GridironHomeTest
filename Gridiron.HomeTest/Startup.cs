@@ -36,11 +36,19 @@ namespace Gridiron.HomeTest
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseInMemoryDatabase("gridiron_apps")
             );
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var UIEndpoint = Environment.GetEnvironmentVariable("UI_ENDPOINT");
+
+            Console.WriteLine(UIEndpoint);
+
+            app.UseCors(options => options.WithOrigins(UIEndpoint).AllowAnyMethod().AllowAnyHeader());
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -75,34 +83,34 @@ namespace Gridiron.HomeTest
             var testApplication1 = new Application
             {
                 Name = "Application 1",
-                EffectiveDate = "01/07/2022",
+                EffectiveDate = DateTime.Parse("2022-07-01"),
                 AddressStreet = "140 E 46th St",
                 AddressCity = "New York",
                 AddressState = "NY",
                 AddressZip = "10017",
-                InsuredValueAmount = "100000"
+                InsuredValueAmount = 100000
             };
 
             var testApplication2 = new Application
             {
                 Name = "Application 2",
-                EffectiveDate = "02/14/2022",
+                EffectiveDate = DateTime.Parse("2022-02-14"),
                 AddressStreet = "461 NW 9th St",
                 AddressCity = "Miami",
                 AddressState = "FL",
                 AddressZip = "33136",
-                InsuredValueAmount = "185000"
+                InsuredValueAmount = 185000
             };
 
             var testApplication3 = new Application
             {
                 Name = "Application 3",
-                EffectiveDate = "02/15/2022",
+                EffectiveDate = DateTime.Parse("2022-02-15"),
                 AddressStreet = "501 77th St",
                 AddressCity = "Miami Beach",
                 AddressState = "FL",
                 AddressZip = "33141",
-                InsuredValueAmount = "250000"
+                InsuredValueAmount = 250000
             };
 
             context.Applications.Add(testApplication1);

@@ -16,9 +16,9 @@ namespace Gridiron.HomeTest.Models
         [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
 
-        // mm/dd/yy
-        [Column(TypeName = "nvarchar(8)")]
-        public string EffectiveDate { get; set; }
+        // yyyy-mm-dd
+        [Column(TypeName = "datetime, not null")]
+        public DateTime EffectiveDate { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         public string AddressStreet { get; set; }
@@ -32,9 +32,7 @@ namespace Gridiron.HomeTest.Models
         [Column(TypeName = "nvarchar(5)")]
         public string AddressZip { get; set; }
 
-        [Column(TypeName = "nvarchar(15)")]
-        public string InsuredValueAmount { get; set; }
-
-
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal InsuredValueAmount { get; set; }
     }
 }
