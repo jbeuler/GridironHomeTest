@@ -17,10 +17,33 @@ export class ApplicationFormComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
+   if(this.service.formData.id == 0) {
+     this.insertRecord(form);
+   } else {
+     this.updateRecord(form);
+   }
+  }
+ 
+
+  insertRecord(form:NgForm){
     this.service.postApplication().subscribe(
       res => {
         this.resetForm(form);
+        this.service.refreshList();
         this.toastr.success('Submitted successfully!');
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  updateRecord(form:NgForm){
+    this.service.putApplication().subscribe(
+      res => {
+        this.resetForm(form);
+        this.service.refreshList();
+        this.toastr.info('Successfully updated!');
       },
       err => {
         console.log(err);

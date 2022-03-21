@@ -1,4 +1,7 @@
 .application-registration-form {
+    .d-flex {
+        display: flex;
+    }
     .form-control {
         padding:10px 10px;
         margin: 5px 10px;
@@ -45,9 +48,18 @@
     }
     
     .form-row {
+        padding: 0 10px;
         display: flex;
         &.vertical {
             flex-direction: column;
+        }
+
+        input, select {
+            width: -webkit-fill-available;
+        }
+
+        .form-group {
+            padding: 5px 0;
         }
     }
     

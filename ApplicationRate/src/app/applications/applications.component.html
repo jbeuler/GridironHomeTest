@@ -1,12 +1,34 @@
 <h1 class="text-center">
-    Application Registration
+    Application Portal
 </h1>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col col-md-3">
         <app-application-form></app-application-form>
     </div>
-    <div class="col-md-6">
-       <span> List of applications</span>
+    <div class="col col-md-8">
+       <span>List of applications</span>
+       <table class="table">
+           <thead class="thead-light">
+               <tr>
+                   <th class="col-name">Name</th>
+                   <th class="col-address">Address</th>
+                   <th class="col-eff-date">Eff. date</th>
+                   <th class="col-ins-val">Insured Value Amount</th>
+                   <th class="col-generated-premium">Generated Premium</th>
+                   <th></th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let app of service.list">
+                   <td (click)="populateForm(app)">{{app.name}}</td>
+                   <td (click)="populateForm(app)">{{app.addressStreet}}<br> {{app.addressCity}}, {{app.addressState}}<br> {{app.addressZip}}</td>
+                   <td (click)="populateForm(app)">{{app.effectiveDate}}</td>
+                   <td (click)="populateForm(app)">{{app.insuredValueAmount}}</td>
+                   <td (click)="populateForm(app)">{{calculatePremium(app.insuredValueAmount, app.addressState)}}</td>
+                   <td><fa-icon (click)="onDelete(app.id)" [icon]="faTrashAlt" class="text-danger"></fa-icon></td>
+                </tr>
+           </tbody>
+       </table>
     </div>
 </div>

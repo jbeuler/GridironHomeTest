@@ -83,7 +83,7 @@ namespace Gridiron.HomeTest
             var testApplication1 = new Application
             {
                 Name = "Application 1",
-                EffectiveDate = "01/07/2022",
+                EffectiveDate = "2022-07-01",
                 AddressStreet = "140 E 46th St",
                 AddressCity = "New York",
                 AddressState = "NY",
@@ -94,7 +94,7 @@ namespace Gridiron.HomeTest
             var testApplication2 = new Application
             {
                 Name = "Application 2",
-                EffectiveDate = "02/14/2022",
+                EffectiveDate = "2022-02-14",
                 AddressStreet = "461 NW 9th St",
                 AddressCity = "Miami",
                 AddressState = "FL",
@@ -105,7 +105,7 @@ namespace Gridiron.HomeTest
             var testApplication3 = new Application
             {
                 Name = "Application 3",
-                EffectiveDate = "02/15/2022",
+                EffectiveDate = "2022-02-15",
                 AddressStreet = "501 77th St",
                 AddressCity = "Miami Beach",
                 AddressState = "FL",

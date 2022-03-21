@@ -3,10 +3,56 @@
     margin-top: 10px;
 }
 
+.col {
+    margin: 10px 20px;
+}
+
 .col-md-6 {
     width: 50%;
 }
 
+.col-md-3 {
+    width: 30%;
+}
+
+.col-md-8 {
+    width: 70%;
+}
+
 .text-center {
     text-align: center;
+}
+
+.table {
+    margin-top: 20px;
+    tr {
+        background: #6bb5fa11;
+        cursor: pointer;
+    }
+    .thead-light {
+        background: lightgray;
+    }
+
+    th, td {
+        padding: 10px 15px;
+    }
+
+    .col-address {
+        min-width: 200px;
+    }
+    .col-name {
+        min-width: 150px;
+    }
+
+    .col-eff-date {
+        min-width: 100px;
+    }
+
+    .col-rate {
+        min-width: 100px;
+    }
+}
+
+.text-danger {
+    color: red;
 }

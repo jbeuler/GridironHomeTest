@@ -34,7 +34,5 @@ namespace Gridiron.HomeTest.Models
 
         [Column(TypeName = "nvarchar(15)")]
         public string InsuredValueAmount { get; set; }
-
-
     }
 }

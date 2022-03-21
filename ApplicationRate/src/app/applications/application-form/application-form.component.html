@@ -1,4 +1,4 @@
-<form class="application-registration-form" novalidate #applicationRegistrationForm="ngForm"
+<form class="application-registration-form" novalidate autocomplete="off" #applicationRegistrationForm="ngForm"
 (submit)="onSubmit(applicationRegistrationForm)">
     <input type="hidden" name="id" [value]="service.formData.id" />
     <div class="form-group">
@@ -8,36 +8,41 @@
     </div>
     <div class="form-group">
         <label class="group-label">Effective Date</label>
-        <input type="text" class="form-control form-control-lg" placeholder="MM/DD/YYYY" name="effectiveDate"
+        <input type="date" class="form-control form-control-lg" placeholder="MM/DD/YYYY" name="effectiveDate"
         #effectiveDate="ngModel" [(ngModel)]="service.formData.effectiveDate" required [class.invalid]="effectiveDate.invalid && effectiveDate.touched">
     </div>
     <div class="form-row vertical">
         <label class="group-label">Address</label>
   
-    <div class="form-group">
-        <input type="text" class="form-control form-control-lg" placeholder="Street" name="addressStreet"
-        #addressStreet="ngModel" [(ngModel)]="service.formData.addressStreet" required [class.invalid]="addressStreet.invalid && addressStreet.touched">
-    </div>
+        <div>
+            <input type="text" class="form-control form-control-lg" placeholder="Street" name="addressStreet"
+            #addressStreet="ngModel" [(ngModel)]="service.formData.addressStreet" required [class.invalid]="addressStreet.invalid && addressStreet.touched">
+        </div>
 
-    <div class="form-row horizontal">
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control form-control-lg" placeholder="City" name="addressCity"
-            #addressCity="ngModel" [(ngModel)]="service.formData.addressCity" required [class.invalid]="addressCity.invalid && addressCity.touched"> 
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control form-control-lg" placeholder="State" name="addressState"
-            #addressState="ngModel" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched">
-        </div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control form-control-lg" placeholder="Zip" name="addressZip"
-            #addressZip="ngModel" [(ngModel)]="service.formData.addressZip" required maxlength="5" [class.invalid]="addressZip.invalid && addressZip.touched"> 
+        <div class="d-flex horizontal">
+            <div class="col-md-4">
+                <input type="text" class="form-control form-control-lg" placeholder="City" name="addressCity"
+                #addressCity="ngModel" [(ngModel)]="service.formData.addressCity" required [class.invalid]="addressCity.invalid && addressCity.touched"> 
+            </div>
+            <div class="col-md-4">
+                <!-- <input type="text" class="form-control form-control-lg" placeholder="State" name="addressState"
+                #addressState="ngModel" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched"> -->
+
+                <select class="form-control form-control-lg" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched" name="addressState" #addressState="ngModel">
+                    <option *ngFor="let usState of service.usStates" value="{{usState.abbreviation}}">
+                        {{usState.name}}
+                     </option>
+                  </select>
+            </div>
+            <div class="col-md-4">
+                <input type="string" class="form-control form-control-lg" placeholder="Zip" name="addressZip"
+                #addressZip="ngModel" [(ngModel)]="service.formData.addressZip" required maxlength="5" [class.invalid]="addressZip.invalid && addressZip.touched"> 
+            </div>
         </div>
     </div>
-
-</div>
     <div class="form-group">
         <label class="group-label">Insured Value Amount</label>
-        <input type="text" class="form-control form-control-lg" placeholder="Insured Value Amount" name="insuredValueAmount"
+        <input type="string" class="form-control form-control-lg" placeholder="Insured Value Amount" name="insuredValueAmount"
         #insuredValueAmount="ngModel" [(ngModel)]="service.formData.insuredValueAmount" required [class.invalid]="insuredValueAmount.invalid && insuredValueAmount.touched"> 
     </div>
 

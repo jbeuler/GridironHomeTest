@@ -6,7 +6,7 @@ export class Application {
     addressCity:string;
     addressState:string;
     addressZip:string;
-    insuredValueAmount:string;
+    insuredValueAmount:number;
 
     constructor(){
         this.id = 0;
@@ -16,6 +16,6 @@ export class Application {
         this.addressCity = '';
         this.addressState = '';
         this.addressZip = '';
-        this.insuredValueAmount = '';
+        this.insuredValueAmount = 0;
     }
 }
