@@ -1,4 +1,7 @@
 .application-registration-form {
+    select {
+        cursor: pointer;
+    }
     .d-flex {
         display: flex;
     }
@@ -85,6 +88,18 @@
     }
     
     .col-md-4 {
-        width: 33.33%;
+        width: 40%;
+    }
+
+    .col-md-2 {
+        width: 20%;
+    }
+    
+    .hidden-label {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: 22px;
+        font-style: italic;
+        pointer-events: none;
     }
 }

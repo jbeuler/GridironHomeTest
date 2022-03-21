@@ -27,14 +27,14 @@
             <div class="col-md-4">
                 <!-- <input type="text" class="form-control form-control-lg" placeholder="State" name="addressState"
                 #addressState="ngModel" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched"> -->
-
-                <select class="form-control form-control-lg" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched" name="addressState" #addressState="ngModel">
+                <label class="hidden-label" for="addressState" *ngIf="service.formData.addressState == ''">State</label>
+                <select placeholder="State" class="form-control form-control-lg" [(ngModel)]="service.formData.addressState" required [class.invalid]="addressState.invalid && addressState.touched" name="addressState" #addressState="ngModel">
                     <option *ngFor="let usState of service.usStates" value="{{usState.abbreviation}}">
                         {{usState.name}}
                      </option>
                   </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <input type="string" class="form-control form-control-lg" placeholder="Zip" name="addressZip"
                 #addressZip="ngModel" [(ngModel)]="service.formData.addressZip" required maxlength="5" [class.invalid]="addressZip.invalid && addressZip.touched"> 
             </div>
